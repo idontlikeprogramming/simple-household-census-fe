@@ -6,18 +6,22 @@ import { AuthComponent } from './auth.component';
 import { LoginComponent } from './login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { SetNewPasswordComponent } from './set-new-password/set-new-password.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MaterialsModule } from '../materials/materials.module';
 
 @NgModule({
   declarations: [
     AuthComponent,
     LoginComponent,
     ForgotPasswordComponent,
-    SetNewPasswordComponent
+    SetNewPasswordComponent,
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule
-  ]
+    AuthRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MaterialsModule,
+  ],
 })
-export class AuthModule { }
+export class AuthModule {}

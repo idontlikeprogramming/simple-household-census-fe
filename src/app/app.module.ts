@@ -8,6 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MaterialsModule } from './materials/materials.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LandingComponent } from './landing/landing.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, NotFoundComponent, LandingComponent],
@@ -17,6 +18,7 @@ import { LandingComponent } from './landing/landing.component';
     BrowserAnimationsModule,
     NgbModule,
     MaterialsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
