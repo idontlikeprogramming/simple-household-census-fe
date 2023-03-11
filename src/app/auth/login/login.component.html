@@ -1,0 +1,26 @@
+<div class="card">
+  <div class="card-header">
+    <h5>Login</h5>
+  </div>
+  <div class="card-body">
+    <form id="loginForm">
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" name="password" id="password" placeholder="Email" required>
+      </div>
+    </form>
+  </div>
+  <div class="card-footer text-center">
+    <div class="d-grid gap-2">
+      <button type="submit" form="loginForm" name="submit" id="submit" class="btn btn-primary">Sign-In</button>
+    </div>
+    <br>
+    <a [routerLink]="['/auth/forgot-password']">Forgot Password?</a>
+    <br>
+    <a [routerLink]="['/auth/set-new-password']">Set New Password</a>
+  </div>
+</div>

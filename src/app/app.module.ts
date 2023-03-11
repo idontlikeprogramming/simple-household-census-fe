@@ -6,9 +6,11 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MaterialsModule } from './materials/materials.module';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { LandingComponent } from './landing/landing.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, NotFoundComponent, LandingComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
