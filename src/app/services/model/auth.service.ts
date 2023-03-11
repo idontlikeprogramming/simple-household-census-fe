@@ -48,4 +48,10 @@ export class AuthService {
       this._router.navigateByUrl('/auth/login');
     }
   }
+
+  logout() {
+    this._storage.remove('token');
+    this._storage.remove('password');
+    this._router.navigateByUrl('/auth/login');
+  }
 }
