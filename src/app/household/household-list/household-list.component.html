@@ -5,7 +5,7 @@
         <h5>Household List</h5>
       </div>
       <div class="col-auto">
-        <button type="button" class="btn btn-outline-primary btn-sm">Add</button>
+        <button type="button" class="btn btn-outline-primary btn-sm" (click)="openAddDialog()">Add</button>
       </div>
     </div>
   </div>
@@ -23,7 +23,7 @@
           </tr>
         </thead>
         <tbody class="table-group-divider">
-          <tr *ngFor="let item of list" class="cursor">
+          <tr *ngFor="let item of list" class="cursor" (click)="openEditDialog(item)">
             <td scope="row">{{ item.barangay }}</td>
             <td>{{ item.head }}</td>
             <td>{{ item.member_count }}</td>

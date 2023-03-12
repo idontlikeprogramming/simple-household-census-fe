@@ -1,0 +1,89 @@
+<h1 mat-dialog-title>Add Household</h1>
+<div mat-dialog-content>
+  <form id="formSubmit" (submit)="submit()">
+    <div class="mb-3">
+      <label for="province" class="form-label">Province</label>
+      <input type="text" class="form-control" name="province" id="province" placeholder="Province" list="provinceList"
+        [(ngModel)]="province">
+      <datalist id="provinceList">
+        <option *ngFor="let item of provinces" [value]="item">{{ item }}</option>
+      </datalist>
+    </div>
+    <div class="mb-3">
+      <label for="city" class="form-label">City</label>
+      <input type="text" class="form-control" name="city" id="city" placeholder="City" list="cityList"
+        [(ngModel)]="city">
+      <datalist id="cityList">
+        <option *ngFor="let item of cities" [value]="item">{{ item }}</option>
+      </datalist>
+    </div>
+    <div class="mb-3">
+      <label for="barangay" class="form-label">Barangay</label>
+      <input type="text" class="form-control" name="barangay" id="barangay" placeholder="Barangay" list="barangayList"
+        [(ngModel)]="barangay">
+      <datalist id="barangayList">
+        <option *ngFor="let item of barangays" [value]="item">{{ item }}</option>
+      </datalist>
+    </div>
+    <hr>
+    <div class="mb-3">
+      <label for="respondent_name" class="form-label">Respondent Name</label>
+      <input type="text" class="form-control" name="respondent_name" id="respondent_name" placeholder="Respondent Name"
+        [(ngModel)]="respondent_name">
+    </div>
+    <div class="mb-3">
+      <label for="head" class="form-label">Household Head</label>
+      <input type="text" class="form-control" name="head" id="head" placeholder="Household Head" [(ngModel)]="head">
+    </div>
+    <div class="mb-3">
+      <label for="member_count" class="form-label">Household Members</label>
+      <input type="number" class="form-control" name="member_count" id="member_count" pattern="[0-9]+"
+        placeholder="Household Members" [(ngModel)]="member_count">
+    </div>
+    <div class="mb-3">
+      <label for="address" class="form-label">Address</label>
+      <textarea class="form-control" name="address" id="address" rows="3" [(ngModel)]="address"></textarea>
+    </div>
+  </form>
+
+  <hr>
+
+  <div *ngIf="household != undefined">
+    <table class="table table-borderless">
+      <tr>
+        <td>Updated At</td>
+        <td>{{ household.updated_at | date:'medium' }}</td>
+      </tr>
+      <tr>
+        <td>Created At</td>
+        <td>{{ household.created_at | date:'medium' }}</td>
+      </tr>
+      <tr>
+        <td>Conducted By</td>
+        <td>{{ household.conducted_by.name }}</td>
+      </tr>
+    </table>
+    <hr>
+    <div class="card">
+      <div class="card-body">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="confirm" [(ngModel)]="confirm">
+          <label class="form-check-label" for="">Please confirm here you to delete this household from record.</label>
+        </div>
+        <div class="d-grid gap-2 mt-2">
+          <button type="button" [disabled]="!confirm" name="delete" id="delete" class="btn btn-danger"
+            (click)="delete()">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions align="end">
+  <span *ngIf="data != null" class="px-2">
+    <small>
+      <a [routerLink]="['/household/member', 'slug']" [mat-dialog-close]="null">View Members</a>
+    </small>
+  </span>
+  <button mat-button [mat-dialog-close]="null">Cancel</button>
+  <button type="submit" form="formSubmit" mat-button cdkFocusInitial>Save</button>
+</div>

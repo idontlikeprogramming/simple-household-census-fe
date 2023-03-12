@@ -10,4 +10,6 @@ export interface Household {
   head: string;
   address: string;
   member_count: number;
+  created_at: string;
+  updated_at: string;
 }

@@ -7,6 +7,10 @@ import { HttpService } from '../http.service';
 export class HouseholdService {
   constructor(private _http: HttpService) {}
 
+  async getSuggestions() {
+    return await this._http.get('/household/get-suggestions');
+  }
+
   async list(search: string = '', conducted_by_id: any) {
     return await this._http.get('/household/list', {
       search,

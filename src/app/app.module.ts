@@ -9,6 +9,7 @@ import { MaterialsModule } from './materials/materials.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LandingComponent } from './landing/landing.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [AppComponent, NotFoundComponent, LandingComponent],
@@ -20,7 +21,12 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: MAT_DIALOG_DEFAULT_OPTIONS,
+      useValue: { hasBackdrop: true, disableClose: true },
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
