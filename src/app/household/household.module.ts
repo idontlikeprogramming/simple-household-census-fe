@@ -7,9 +7,17 @@ import { HomeComponent } from './home/home.component';
 import { HouseholdListComponent } from './household-list/household-list.component';
 import { DialogsModule } from '../dialogs/dialogs.module';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [HouseholdComponent, HomeComponent, HouseholdListComponent],
-  imports: [CommonModule, RouterModule, HouseholdRoutingModule, DialogsModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    HouseholdRoutingModule,
+    DialogsModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 })
 export class HouseholdModule {}

@@ -10,6 +10,36 @@
     </div>
   </div>
   <div class="card-body">
+    <div class="row justify-content-end align-items-center mb-3">
+      <div class="col">
+        <form class="d-flex" (submit)="find()">
+          <div class="col">
+            <div class="input-group mb-3">
+              <input type="text" name="search" class="form-control" placeholder="Search Household Head"
+                aria-label="Button" aria-describedby="" [(ngModel)]="search">
+              <button class="btn btn-outline-primary" type="submit" id="search">Search</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col">
+        <div class="dropdown mb-3">
+          <button class="btn btn-outline-primary dropdown-toggle" type="button" id="triggerId" data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            {{ conductor_name == undefined ? 'Select Conductor' : conductor_name }}
+          </button>
+          <div class="dropdown-menu" aria-labelledby="triggerId">
+            <a class="dropdown-item cursor" (click)="selectConductor(null)">All</a>
+            <a *ngFor="let item of users" class="dropdown-item cursor" (click)="selectConductor(item)">{{ item.name
+              }}</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-auto">
+        Showing: {{ from }}-{{ to }}
+      </div>
+    </div>
+
     <div class="table-responsive">
       <table class="table table-striped
       table-hover
@@ -33,5 +63,16 @@
       </table>
     </div>
 
+    <div class="row justify-content-center">
+      <div class="col-auto">
+        <div class="btn-group btn-group-sm" role="group" aria-label="Paginator">
+          <button [disabled]="!has_prev_page" (click)="paginate(current_page - 1)" type="button"
+            class="btn btn-outline-primary btn-sm">Prev</button>
+          <button type="button" class="btn btn-outline-primary btn-sm">{{ current_page }}</button>
+          <button [disabled]="!has_next_page" (click)="paginate(current_page + 1)" type="button"
+            class="btn btn-outline-primary btn-sm">Next</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

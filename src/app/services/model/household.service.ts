@@ -11,10 +11,11 @@ export class HouseholdService {
     return await this._http.get('/household/get-suggestions');
   }
 
-  async list(search: string = '', conducted_by_id: any) {
+  async list(search: string = '', conducted_by_id: any, page: number = 1) {
     return await this._http.get('/household/list', {
       search,
       conducted_by_id,
+      page,
     });
   }
 
