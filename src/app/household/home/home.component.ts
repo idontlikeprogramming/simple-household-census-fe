@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { StatsService } from '../services/model/stats.service';
+import { StatsService } from 'src/app/services/model/stats.service';
 
 @Component({
-  selector: 'app-landing',
-  templateUrl: './landing.component.html',
-  styleUrls: ['./landing.component.scss'],
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
 })
-export class LandingComponent implements OnInit {
+export class HomeComponent implements OnInit {
   senior = 0;
   pwd = 0;
   solo = 0;
