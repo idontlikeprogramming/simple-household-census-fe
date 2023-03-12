@@ -17,14 +17,14 @@ const routes: Routes = [
         path: 'list',
         component: HouseholdListComponent,
       },
+      {
+        path: 'member',
+        loadChildren: () =>
+          import('../household-member/household-member.module').then(
+            (m) => m.HouseholdMemberModule
+          ),
+      },
     ],
-  },
-  {
-    path: 'member',
-    loadChildren: () =>
-      import('../household-member/household-member.module').then(
-        (m) => m.HouseholdMemberModule
-      ),
   },
 ];
 

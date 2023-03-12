@@ -79,9 +79,9 @@
   </div>
 </div>
 <div mat-dialog-actions align="end">
-  <span *ngIf="data != null" class="px-2">
+  <span *ngIf="data != null && household != undefined" class="px-2">
     <small>
-      <a [routerLink]="['/household/member', 'slug']" [mat-dialog-close]="null">View Members</a>
+      <a [routerLink]="['/household/member', household.hashid]" [mat-dialog-close]="null">View Members</a>
     </small>
   </span>
   <button mat-button [mat-dialog-close]="null">Cancel</button>

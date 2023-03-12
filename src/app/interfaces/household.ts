@@ -12,4 +12,5 @@ export interface Household {
   member_count: number;
   created_at: string;
   updated_at: string;
+  hashid: string;
 }

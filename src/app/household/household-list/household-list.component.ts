@@ -13,7 +13,6 @@ import { UserService } from 'src/app/services/model/user.service';
   styleUrls: ['./household-list.component.scss'],
 })
 export class HouseholdListComponent implements OnInit {
-  category = ''; // Not here
   list: Household[] = [];
   users: User[] = [];
 
@@ -28,16 +27,10 @@ export class HouseholdListComponent implements OnInit {
   conductor_name: any;
 
   constructor(
-    _route: ActivatedRoute,
     private _householdService: HouseholdService,
     private _dialog: MatDialog,
     private _userService: UserService
-  ) {
-    _route.queryParams.subscribe((params) => {
-      console.log(params);
-      this.category = params['category'];
-    });
-  }
+  ) {}
 
   ngOnInit(): void {
     this.getList();

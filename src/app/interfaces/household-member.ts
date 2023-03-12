@@ -16,4 +16,5 @@ export interface HouseholdMember {
   is_solo_parent: boolean;
   is_senior: boolean;
   age: number;
+  name: string;
 }
