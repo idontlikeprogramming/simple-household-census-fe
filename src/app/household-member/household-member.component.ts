@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { MemberDialogComponent } from '../dialogs/member-dialog/member-dialog.component';
 import { Household } from '../interfaces/household';
 import { HouseholdMember } from '../interfaces/household-member';
 import { HouseholdMemberService } from '../services/model/household-member.service';
@@ -17,7 +19,8 @@ export class HouseholdMemberComponent implements OnInit {
 
   constructor(
     _route: ActivatedRoute,
-    private _memberService: HouseholdMemberService
+    private _memberService: HouseholdMemberService,
+    private _dialog: MatDialog
   ) {
     _route.params.subscribe((params) => {
       this.hashid = params['hashid'];
@@ -38,5 +41,28 @@ export class HouseholdMemberComponent implements OnInit {
       this.household = res.data['household'];
       this.members = res.data['members'];
     }
+  }
+
+  openAddDialog() {
+    let dialogRef = this._dialog.open(MemberDialogComponent, {
+      width: '600px',
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.getList();
+      }
+    });
+  }
+
+  openEditDialog(member: HouseholdMember) {
+    let dialogRef = this._dialog.open(MemberDialogComponent, {
+      width: '600px',
+      data: member,
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.getList();
+      }
+    });
   }
 }

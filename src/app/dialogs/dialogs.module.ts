@@ -4,9 +4,10 @@ import { AddHouseholdComponent } from './add-household/add-household.component';
 import { MaterialsModule } from '../materials/materials.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { MemberDialogComponent } from './member-dialog/member-dialog.component';
 
 @NgModule({
-  declarations: [AddHouseholdComponent],
+  declarations: [AddHouseholdComponent, MemberDialogComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -14,6 +15,6 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     ReactiveFormsModule,
   ],
-  exports: [AddHouseholdComponent],
+  exports: [AddHouseholdComponent, MemberDialogComponent],
 })
 export class DialogsModule {}

@@ -1,8 +1,44 @@
 <div *ngIf="household != undefined" class="card">
   <div class="card-header">
-    <h5>{{ household.head }}<small>'s Household Members</small></h5>
+    <div class="row">
+      <div class="col">
+        <h5>{{ household.head }}<small>'s Household Members</small></h5>
+      </div>
+      <div class="col-auto">
+        <button type="button" class="btn btn-outline-primary btn-sm" (click)="openAddDialog()">Add</button>
+      </div>
+    </div>
   </div>
   <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-striped
+      table-hover
+      table-borderless">
+        <thead class="table-light">
+          <tr>
+            <th>Name</th>
+            <th>Relationship</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Senior</th>
+            <th>PWD</th>
+            <th>Solo</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <tr *ngFor="let item of members" (click)="openEditDialog(item)" class="cursor">
+            <td scope="row">{{ item.name }}</td>
+            <td>{{ item.relationship_to_head }}</td>
+            <td>{{ item.sex }}</td>
+            <td>{{ item.age }}</td>
+            <td class="text-uppercase text-{{ item.is_senior ? 'success' : 'dark' }}">{{ item.is_senior }}</td>
+            <td class="text-uppercase text-{{ item.is_pwd ? 'success' : 'dark' }}">{{ item.is_pwd }}</td>
+            <td class="text-uppercase text-{{ item.is_solo_parent ? 'success' : 'dark' }}">{{ item.is_solo_parent }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
   </div>
 </div>
