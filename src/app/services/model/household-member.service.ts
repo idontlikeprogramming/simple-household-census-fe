@@ -7,6 +7,18 @@ import { HttpService } from '../http.service';
 export class HouseholdMemberService {
   constructor(private _http: HttpService) {}
 
+  async general(
+    category: string | undefined,
+    limit: number = 10,
+    page: number = 1
+  ) {
+    return await this._http.get('/household-member/general', {
+      category,
+      limit,
+      page,
+    });
+  }
+
   async list(household_hashid: string, category: string | undefined) {
     return await this._http.get('/household-member/list', {
       household_hashid,
