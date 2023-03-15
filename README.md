@@ -6,7 +6,7 @@
 - Angular CLI `npm install -g @angular/cli`
 
 ## Installation
-- Clone this repo
+- Clone this repo `git clone https://github.com/gabrielarlo/simple-household-census-fe.git`
 - Run `yarn install`
 - Run `ng serve` to serve the server
 - Go to `http://localhost:4200`
