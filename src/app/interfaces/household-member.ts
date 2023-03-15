@@ -17,4 +17,6 @@ export interface HouseholdMember {
   is_senior: boolean;
   age: number;
   name: string;
+  created_at: string;
+  updated_at: string;
 }

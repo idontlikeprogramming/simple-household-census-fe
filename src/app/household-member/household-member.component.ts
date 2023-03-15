@@ -46,6 +46,9 @@ export class HouseholdMemberComponent implements OnInit {
   openAddDialog() {
     let dialogRef = this._dialog.open(MemberDialogComponent, {
       width: '600px',
+      data: {
+        household_id: this.household?.id,
+      },
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
@@ -57,7 +60,10 @@ export class HouseholdMemberComponent implements OnInit {
   openEditDialog(member: HouseholdMember) {
     let dialogRef = this._dialog.open(MemberDialogComponent, {
       width: '600px',
-      data: member,
+      data: {
+        household_id: this.household?.id,
+        member: member,
+      },
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {

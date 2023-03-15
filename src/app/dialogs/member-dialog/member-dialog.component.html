@@ -1,1 +1,105 @@
-<p>member-dialog works!</p>
+<h1 mat-dialog-title>Add Household</h1>
+<div mat-dialog-content>
+  <form id="formSubmit" (submit)="submit()">
+    <div class="mb-3">
+      <label for="first_name" class="form-label">First Name</label>
+      <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name"
+        [(ngModel)]="first_name" required>
+    </div>
+    <div class="mb-3">
+      <label for="middle_name" class="form-label">Middle Name</label>
+      <input type="text" class="form-control" name="middle_name" id="middle_name" placeholder="Middle Name"
+        [(ngModel)]="middle_name">
+    </div>
+    <div class="mb-3">
+      <label for="last_name" class="form-label">Last Name</label>
+      <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name"
+        [(ngModel)]="last_name" required>
+    </div>
+    <div class="mb-3">
+      <label for="sex" class="form-label">Gender</label>
+      <select class="form-select" name="sex" id="sex" [(ngModel)]="sex" required>
+        <option value="">Select Gender</option>
+        <option value="MALE">Male</option>
+        <option value="FEMALE">Female</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="relationship_to_head" class="form-label">Relationship To Household Head</label>
+      <select class="form-select" name="relationship_to_head" id="relationship_to_head"
+        [(ngModel)]="relationship_to_head" required>
+        <option value="">Select Relationship</option>
+        <option value="HUSBAND">Husband</option>
+        <option value="WIFE">Wife</option>
+        <option value="LIVE_IN_PARTNER">Live-in Partner</option>
+        <option value="SON">Son</option>
+        <option value="DAUGHTER">Daughter</option>
+        <option value="BROTHER">Brother</option>
+        <option value="SISTER">Sister</option>
+        <option value="NEPHEW">Nephew</option>
+        <option value="OTHER">Other</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="birth_date" class="form-label">Birth Date</label>
+      <input type="date" class="form-control" name="birth_date" id="birth_date" placeholder="Birth Date"
+        [(ngModel)]="birth_date" required>
+    </div>
+    <div class="mb-3">
+      <label for="place_of_birth" class="form-label">Place of Birth</label>
+      <input type="text" class="form-control" name="place_of_birth" id="place_of_birth" placeholder="Place of Birth"
+        [(ngModel)]="place_of_birth" required>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" [(ngModel)]="is_lgbtqm" name="is_lgbtqm" id="is_lgbtqm">
+      <label class="form-check-label" for="is_lgbtqm">
+        Is LGBTQM+?
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" [(ngModel)]="is_pwd" name="is_pwd" id="is_pwd">
+      <label class="form-check-label" for="is_pwd">
+        Is PWD?
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" [(ngModel)]="is_solo_parent" name="is_solo_parent"
+        id="is_solo_parent">
+      <label class="form-check-label" for="is_solo_parent">
+        Is Solo Parent?
+      </label>
+    </div>
+  </form>
+
+  <hr>
+
+  <div *ngIf="member != undefined">
+    <table class="table table-borderless">
+      <tr>
+        <td>Updated At</td>
+        <td>{{ member.updated_at | date:'medium' }}</td>
+      </tr>
+      <tr>
+        <td>Created At</td>
+        <td>{{ member.created_at | date:'medium' }}</td>
+      </tr>
+    </table>
+    <hr>
+    <div class="card">
+      <div class="card-body">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="confirm" [(ngModel)]="confirm">
+          <label class="form-check-label" for="">Please confirm here you to delete this household from record.</label>
+        </div>
+        <div class="d-grid gap-2 mt-2">
+          <button type="button" [disabled]="!confirm" name="delete" id="delete" class="btn btn-danger"
+            (click)="delete()">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="null">Cancel</button>
+  <button type="submit" form="formSubmit" mat-button cdkFocusInitial>Save</button>
+</div>

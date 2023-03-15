@@ -48,7 +48,6 @@ export class HouseholdMemberService {
 
   async update(
     id: number,
-    household_id: number,
     first_name: string,
     middle_name: string,
     last_name: string,
@@ -64,7 +63,6 @@ export class HouseholdMemberService {
       '/household-member/update',
       {
         id,
-        household_id,
         first_name,
         middle_name,
         last_name,
