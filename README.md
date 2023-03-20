@@ -13,6 +13,12 @@
 - Go to `http://localhost:4200`
   - Note: Make sure that the BE is running.
 
+### Code Updates
+- run `git pull`
+- run `yarn install`
+- finally run `ng serve`
+
+
 ## Credential
 ```
 Email: admin@hc.com
