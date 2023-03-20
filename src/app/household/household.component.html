@@ -21,6 +21,14 @@
               routerLinkActive="active">Households</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" data-bs-dismiss="offcanvas" [routerLink]="['/household/user']"
+              routerLinkActive="active">Users</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-dismiss="offcanvas" [routerLink]="['/household/user/my-account']"
+              routerLinkActive="active">My Account</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link cursor" data-bs-dismiss="offcanvas" (click)="logout()">Logout</a>
           </li>
           <!-- <li class="nav-item dropdown">
@@ -42,5 +50,5 @@
 </nav>
 
 <div class="container-fluid main">
-  <router-outlet></router-outlet>
+  <router-outlet class="p-3"></router-outlet>
 </div>

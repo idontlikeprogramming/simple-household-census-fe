@@ -1,0 +1,63 @@
+<h1 mat-dialog-title>User</h1>
+<div mat-dialog-content>
+  <form id="formSubmit" (submit)="register()">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" [disabled]="user != undefined" class="form-control" name="name" id="name" placeholder="Name"
+        [(ngModel)]="name" required>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" [disabled]="user != undefined" class="form-control" name="email" id="email"
+        placeholder="Email" [(ngModel)]="email" required>
+    </div>
+    <hr>
+    <div *ngIf="user == undefined" class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" name="password" id="password" placeholder="Password"
+        [(ngModel)]="password" required>
+    </div>
+    <div *ngIf="user == undefined" class="mb-3">
+      <label for="password_confirmation" class="form-label">Password Confirmation</label>
+      <input type="password" class="form-control" name="password_confirmation" id="password_confirmation"
+        placeholder="Password Confirmation" [(ngModel)]="password_confirmation" required>
+    </div>
+  </form>
+
+  <hr>
+
+  <div *ngIf="user != undefined">
+    <table class="table table-borderless">
+      <tr>
+        <td>Updated At</td>
+        <td>{{ user.updated_at | date:'medium' }}</td>
+      </tr>
+      <tr>
+        <td>Created At</td>
+        <td>{{ user.created_at | date:'medium' }}</td>
+      </tr>
+    </table>
+    <hr>
+    <div class="card">
+      <div class="card-body">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="confirm" [(ngModel)]="confirm">
+          <label class="form-check-label" for="">Please confirm here you to reset the password of this user.</label>
+        </div>
+        <div class="d-grid gap-2 mt-2">
+          <button type="button" [disabled]="!confirm" name="reset" id="reset" class="btn btn-danger"
+            (click)="resetPassword()">Delete</button>
+        </div>
+        <div class="row justify-content-center p-3">
+          <div class="col-auto">
+            <span>New Password: <b>{{ new_password }}</b></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="null">Cancel</button>
+  <button *ngIf="user == undefined" type="submit" form="formSubmit" mat-button cdkFocusInitial>Save</button>
+</div>

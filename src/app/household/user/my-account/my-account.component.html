@@ -1,0 +1,61 @@
+<div class="contianer">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h6>My Info</h6>
+        </div>
+        <div class="card-body">
+          <form (submit)="update()" id="updateForm">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" name="name" id="name" placeholder="Name" [(ngModel)]="name"
+                required>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer">
+          <div class="row justify-content-end">
+            <div class="col-auto">
+              <button type="submit" form="updateForm" class="btn btn-primary">Update</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h6>Change Password</h6>
+        </div>
+        <div class="card-body">
+          <form (submit)="changePassword()" id="passwordForm">
+            <div class="mb-3">
+              <label for="current_password" class="form-label">Current Password</label>
+              <input type="password" class="form-control" name="current_password" id="current_password"
+                placeholder="Current Password" [(ngModel)]="current_password" required>
+            </div>
+            <hr>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" name="password" id="password" placeholder="Password"
+                [(ngModel)]="password" required>
+            </div>
+            <div class="mb-3">
+              <label for="password_confirmation" class="form-label">Password Confirmation</label>
+              <input type="password" class="form-control" name="password_confirmation" id="password_confirmation"
+                placeholder="Password Confirmation" [(ngModel)]="password_confirmation" required>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer">
+          <div class="row justify-content-end">
+            <div class="col-auto">
+              <button type="submit" form="passwordForm" class="btn btn-primary">Change</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
