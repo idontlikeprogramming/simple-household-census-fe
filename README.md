@@ -18,6 +18,25 @@
 - run `yarn install`
 - finally run `ng serve`
 
+### Serve Locally or with same router
+- check the local-ip the pc to be as host of the app. should start with `192.168.x.x`
+  - to check `ipconfig` or `ifcondig`
+- open this file `environments/environment.staging.ts` and change the **HOST_IP**
+```
+export const environment = {
+  production: false,
+  api: 'http://{HOST_IP}:8000/api',
+  name: 'Household Census',
+};
+```
+- open the port of the host to port `4200`
+- run `ng serve -c=staging --host 0.0.0.0`
+- if the port is successfully open then go to other pc then browse this url: `http://{HOST_IP}:42000`
+
+
+## NOTE: 
+- Backend and Frontend should run in same host/pc.
+
 
 ## Credential
 ```

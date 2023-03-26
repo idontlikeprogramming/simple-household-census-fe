@@ -62,8 +62,7 @@
           },
           "configurations": {
             "production": {
-              "budgets": [
-                {
+              "budgets": [{
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
@@ -83,12 +82,22 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true,
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.development.ts"
-                }
-              ]
+              "fileReplacements": [{
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.development.ts"
+              }]
+            },
+            "staging": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "fileReplacements": [{
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.staging.ts"
+              }]
             }
           },
           "defaultConfiguration": "production"
@@ -101,6 +110,9 @@
             },
             "development": {
               "browserTarget": "simple-household-census-fe:build:development"
+            },
+            "staging": {
+              "browserTarget": "simple-household-census-fe:build:staging"
             }
           },
           "defaultConfiguration": "development"
